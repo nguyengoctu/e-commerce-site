@@ -3,6 +3,30 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
+html {
+  height: 100%;
+}
+
 body {
   padding-top: 56px;
+  height: 100%;
+}
+
+footer {
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  height: 60px;
 }
