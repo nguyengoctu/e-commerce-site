@@ -25,8 +25,8 @@
                         <%--&lt;%&ndash;<span class="sr-only">(current)</span>&ndash;%&gt;--%>
                     <%--</a>--%>
                 <%--</li>--%>
-                <li class="nav-item" id="listProducts">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/listProducts">Products</a>
+                <li class="nav-item" id="products">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/products">Products</a>
                 </li>
 
                 <li class="nav-item" id="about">
