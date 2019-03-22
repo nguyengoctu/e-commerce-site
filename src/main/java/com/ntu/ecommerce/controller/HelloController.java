@@ -8,18 +8,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class HelloController {
-    @Autowired
     private CategoryService categoryService;
+    private List<Category> categories;
+    private List<Category> enabledCategories;
+
+    @Autowired
+    public HelloController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+        categories = categoryService.getAllCategories();
+        enabledCategories = categoryService.getAllEnabledCategories();
+    }
 
     @RequestMapping(value = {"/hello", "/", "/home", "/index"})
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("page");
         modelAndView.addObject("title", "Home");
         modelAndView.addObject("userClickHome", true);
-        modelAndView.addObject("categories", categoryService.getAllCategories());
+        modelAndView.addObject("categories", categories);
         return modelAndView;
     }
 
@@ -43,18 +53,26 @@ public class HelloController {
     public ModelAndView showProducts() {
         ModelAndView modelAndView = new ModelAndView("page");
         modelAndView.addObject("title", "Products");
-        modelAndView.addObject("categories", categoryService.getAllCategories());
+        modelAndView.addObject("categories", categories);
         modelAndView.addObject("userClickProducts", true);
         return modelAndView;
     }
 
     @RequestMapping(value = {"/category/{id}/products"})
     public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
+
+        Category category = null;
+        for (Category c: categories) {
+            if (c.getId() == id) {
+                category = c;
+                break;
+            }
+        }
+
         ModelAndView modelAndView = new ModelAndView("page");
-        Category category = categoryService.getCategory(id);
         modelAndView.addObject("title", category.getName());
-        modelAndView.addObject("categories", categoryService.getAllCategories());
-        modelAndView.addObject("category", categoryService.getCategory(id));
+        modelAndView.addObject("categories", categories);
+        modelAndView.addObject("category", category);
         modelAndView.addObject("userClickCategoryProducts", true);
         return modelAndView;
     }

@@ -62,5 +62,5 @@
     <tx:annotation-driven/>
 
     <!-- Load static resources -->
-    <mvc:resources mapping="/resources/**" location="/assets/"/>
+    <!--<mvc:resources mapping="/resources/**" location="/assets/"/>-->
 </beans>

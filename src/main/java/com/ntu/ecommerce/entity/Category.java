@@ -19,8 +19,16 @@ public class Category {
     @Column(name = "image_url")
     private String imageURL;
 
-    @Column(name = "is_enabled")
-    private boolean isEnabled = true;
+    @Column(name = "enabled")
+    private boolean enabled = true;
+
+//    @OneToMany(mappedBy = "category", cascade = {
+//            CascadeType.DETACH,
+//            CascadeType.MERGE,
+//            CascadeType.PERSIST,
+//            CascadeType.REFRESH
+//    })
+//    private List<Product> products;
 
     public Category() {
     }
@@ -58,10 +66,37 @@ public class Category {
     }
 
     public boolean isEnabled() {
-        return isEnabled;
+        return enabled;
     }
 
     public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+        this.enabled = enabled;
+    }
+//
+//    public List<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<Product> products) {
+//        this.products = products;
+//    }
+//
+//    public void addProduct(Product product) {
+//        if (products == null) {
+//            products = new ArrayList<>();
+//        }
+//        products.add(product);
+//        product.setCategory(this);
+//    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                ", enabled=" + enabled +
+                '}';
     }
 }
