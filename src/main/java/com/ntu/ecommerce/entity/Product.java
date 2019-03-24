@@ -1,6 +1,7 @@
 package com.ntu.ecommerce.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
@@ -20,7 +21,7 @@ public class Product {
     private String description;
 
     @Column(name = "unit_price")
-    private double unitPrice;
+    private BigDecimal unitPrice;
 
     @Column(name = "quantity")
     private int quantity;
@@ -103,11 +104,11 @@ public class Product {
         this.description = description;
     }
 
-    public double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 

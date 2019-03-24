@@ -22,14 +22,6 @@ public class Category {
     @Column(name = "enabled")
     private boolean enabled = true;
 
-//    @OneToMany(mappedBy = "category", cascade = {
-//            CascadeType.DETACH,
-//            CascadeType.MERGE,
-//            CascadeType.PERSIST,
-//            CascadeType.REFRESH
-//    })
-//    private List<Product> products;
-
     public Category() {
     }
 
@@ -72,22 +64,6 @@ public class Category {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-//
-//    public List<Product> getProducts() {
-//        return products;
-//    }
-//
-//    public void setProducts(List<Product> products) {
-//        this.products = products;
-//    }
-//
-//    public void addProduct(Product product) {
-//        if (products == null) {
-//            products = new ArrayList<>();
-//        }
-//        products.add(product);
-//        product.setCategory(this);
-//    }
 
     @Override
     public String toString() {
